@@ -1,4 +1,4 @@
-angular.module('myApp').service('Phonegap', function(){
+angular.module('myApp').service('Phonegap', function($rootScope){
 	var app
 	if(!app){
 		console.log('Initializing phonegap');			
@@ -20,33 +20,30 @@ angular.module('myApp').service('Phonegap', function(){
 		    // The scope of 'this' is the event. In order to call the 'receivedEvent'
 		    // function, we must explicitly call 'app.receivedEvent(...);'
 		    onDeviceReady: function() {
-		        //app.receivedEvent('deviceready');
+		        app.receivedEvent('deviceready');
 		        document.addEventListener("backbutton", function(){
-		        	alert('Something ...');
+		        	app.receivedEvent('backbutton');
 		        }, false);
 		        document.addEventListener("menubutton", function(){
-		        	alert('Something ...');
+		        	app.receivedEvent('menubutton');
 		        }, false);
 		    },
-		    onMenuButton: function(){
-		    	app.receivedEvent('menubutton');
-		    },
+
 		    // Update DOM on a Received Event
 		    receivedEvent: function(id) {
-		        alert('Received Event: ' + id);
+		        console.log('Received Event: ' + id);
 		        this.events[id]();
 		    },
 		    events: {
 		    	deviceready: function(){
-			        var parentElement = document.getElementById('deviceready');
-			        var listeningElement = parentElement.querySelector('.listening');
-			        var receivedElement = parentElement.querySelector('.received');
-
-			        listeningElement.setAttribute('style', 'display:none;');
-			        receivedElement.setAttribute('style', 'display:block;');
+		    		$rootScope.deviceready = true;
+		    		$rootScope.$broadcast('deviceready');
 		    	},
 			    menubutton: function(){
 			    	alert('Do a barrel roll!');
+			    },
+			    backbutton: function(){
+			    	console.log('Back button fired...');
 			    }
 		    }
 		};	

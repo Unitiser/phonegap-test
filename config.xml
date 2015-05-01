@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Hello World</name>
+    <name>GéoImage Solution - Exemple PhoneGap</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Simple application pour tester différente fonctionnalité de PhoneGap avec AngularJs.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="ncusson59@gmail.com" href="http://www.geoimagesolutions.com/">
+        Nicolas Cusson
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
@@ -19,7 +19,7 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="auto-hide-splash-screen" value="false" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="10" />
     <preference name="android-installLocation" value="auto" />

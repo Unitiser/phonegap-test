@@ -26,11 +26,13 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *;img-src *">
+
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <title>GéoImage Solution - Exemple PhoneGap </title>
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
         <!-- endbower -->
     </head>
     <body ng-app="myApp">
@@ -42,12 +44,16 @@
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/leaflet/dist/leaflet.js"></script>
+        <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
         <!-- endbower -->
         <script type="text/javascript" src="cordova.js"></script> 
         <script type="text/javascript" src="app/app.js"></script>
         <script type="text/javascript" src="app/main/main.js"></script>
         <script type="text/javascript" src="app/about/about.js"></script>
         <script type="text/javascript" src="app/layout/navbar.js"></script>
+        <script type="text/javascript" src="app/map/map.js"></script>
         <script type="text/javascript" src="app/service/phonegap.js"></script>
+        <script type="text/javascript" src="app/service/data.js"></script>
     </body>
 </html>

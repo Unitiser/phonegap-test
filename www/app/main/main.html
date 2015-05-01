@@ -3,13 +3,12 @@
 <div class="container">
     <h1>PhoneGap</h1>
     <div id="deviceready" class="blink">
-        <p class="event listening">Connecting to Device</p>
-        <p class="event received">Device is Ready</p>
+        <p class="listening" ng-hide="isReady">Connecting to Device</p>
+        <p class="received" ng-show="isReady">Device is Ready</p>
     </div>
-
-    <div>
-    	<p>{{hello}}</p>
-    </div>
+    <button ng-click="vibrate()">
+    	CLICK ME!
+    </button>
 </div>
 
 <div ng-include="'app/layout/footer.html'"></div>
