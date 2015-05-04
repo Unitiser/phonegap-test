@@ -4,7 +4,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     injector: {
       options: {
-        ignorePath: 'www/'
+        ignorePath: 'www/',
+        addRootSlash: false
       },
       local_dependencies: {
         files: {
