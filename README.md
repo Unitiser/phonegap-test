@@ -1,0 +1,1 @@
+Application de test pour explorer l'outil PhoneGap.
