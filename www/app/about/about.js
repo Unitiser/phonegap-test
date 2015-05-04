@@ -1,15 +1,19 @@
 'use strict';
 
 angular.module('myApp').controller('AboutCtrl', function($scope, Data){
-	setTimeout(function() {
-		var details = Data['details'];
-		console.log(details);
+
+	Data.getDetails(function(details){
 		$scope.title = details['title'];
 		$scope.description = details['description'];
 		$scope.author = details['author'];
 		$scope.date = details['date'];
 		$scope.$apply();
-	}, 100);
+	});
+
+	Data.getZones(function(zones){
+		$scope.zones = zones;
+		$scope.$apply();
+	});
 
 }).config(['$stateProvider', function($stateProvider) {
   $stateProvider

@@ -20,7 +20,7 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-body {
+body, .view {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
@@ -38,11 +38,12 @@ body {
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
-    height:100%;
+    min-height:100%;
     margin:0px;
     padding:0px;
     /*text-transform:uppercase;*/
     width:100%;
+    position: absolute;
 }
 
 /* Portrait layout (default) */
@@ -125,14 +126,19 @@ h1 {
 #map { height: 100%; position: absolute; width: 100%;}
 
 .main_menu{
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    bottom: 0px;
     z-index: 1001;
     width: 100%;
 }
 .main_menu ul{
-    margin-top: 0px;
+    margin: 0px;
     background-color: white;
+    width: 100%;
+}
+
+.main_menu .container-fluid{
+    padding: 0px !important;
 }
 
 .togglemenu{
@@ -142,3 +148,27 @@ h1 {
     z-index: 1100;
 }
 
+.navbar, .nav{
+    margin-bottom: 0px !important;
+}
+
+.aboutTable tr td{
+    border: black solid 1px;
+    padding: 5px;
+}
+
+.footer{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: gray;
+    color: white;
+}
+.footer p{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.container{
+    min-height: 100%;
+}

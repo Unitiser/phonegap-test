@@ -7,11 +7,22 @@ angular.module('myApp').controller('MainCtrl', function($scope, $rootScope,Phone
 	$scope.vibrate = function(){
 		navigator.vibrate([1000, 500, 2000, 500, 1000]);
 	}
-
+	$scope.location = "En attente...";
 	$scope.$on('deviceready', function(event, data){
 	    $scope.isReady = true;
-	    $scope.$apply();
+		navigator.geolocation.getCurrentPosition(function(position){
+			var lat = position.coords.latitude;
+			var lon = position.coords.longitude;
+			$scope.location = lat + ', ' + lon;
+	    	$scope.$apply();
+		});
+		$scope.$apply();
 	});
+
+	$scope.confirmMsg = function(){
+		$scope.message = $scope.inputText;
+	}
+
 
 }).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');

@@ -1,10 +1,30 @@
 <div ng-include="'app/layout/navbar.html'"></div>
 
 <div class="container">
-	<p>{{title}}</p>
-	<p>{{description}}</p>
-	<p>{{author}}</p>
-	<p>{{date}}</p>
+	<div class="row">
+		<h1>{{title}}</h1>
+		<p>{{description}}</p>
+		<p>{{author}}</p>
+		<p>{{date}}</p>
+	</div>
+	<div class="row">
+		<table class="aboutTable">
+			<tr>
+				<td>ID</td>
+				<td>Nom de la zone</td>
+				<td># hommes</td>
+				<td># femmes</td>
+				<td>Total</td>
+			</tr>
+			<tr ng-repeat="zone in zones">
+				<td>{{zone.id}}</td>
+				<td>{{zone.name}}</td>
+				<td>{{zone.men}}</td>
+				<td>{{zone.women}}</td>
+				<td>{{zone.total}}</td>
+			</tr>
+		</table>
+	</div>
 </div>
 
 <div ng-include="'app/layout/footer.html'"></div>

@@ -34,16 +34,19 @@ angular.module('myApp').service('Phonegap', function($rootScope){
 		        console.log('Received Event: ' + id);
 		        this.events[id]();
 		    },
+		    exit: function(){
+		    	navigator.app.exitApp()
+		    },
 		    events: {
 		    	deviceready: function(){
 		    		$rootScope.deviceready = true;
 		    		$rootScope.$broadcast('deviceready');
 		    	},
 			    menubutton: function(){
-			    	alert('Do a barrel roll!');
+			    	$rootScope.$broadcast('menubutton');
 			    },
 			    backbutton: function(){
-			    	console.log('Back button fired...');
+			    	$rootScope.$broadcast('backbutton');
 			    }
 		    }
 		};	

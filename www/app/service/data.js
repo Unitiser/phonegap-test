@@ -6,7 +6,7 @@ angular.module('myApp').service('Data', function($http){
 			data.fetchData(function(){
 				data.parseSections();
 				data.parseDetails();
-
+				data.parseZones();
 				data.isInitialized = true;
 			});
 		},
@@ -40,13 +40,44 @@ angular.module('myApp').service('Data', function($http){
 			}
 			data.details = details;
 			console.log('Details parsed');
+		},
+		parseZones: function(){
+			var compElements = data.sections['composition'].getElementsByTagName('composition');
+			var valueElements = data.sections['values'].getElementsByTagName('value');
+			var zones = [];
+			for(var i = 0; i < compElements.length; i++){
+				var comp = {};
+				comp.id = compElements[i].attributes['zone'].nodeValue;
+				comp.name = compElements[i].attributes['value'].nodeValue.replace(/,/g, ', ');
+				comp.men = valueElements[i].attributes['men'].nodeValue;
+				comp.women = valueElements[i].attributes['women'].nodeValue;
+				comp.total = valueElements[i].attributes['total'].nodeValue;
+				zones.push(comp);
+			}
+			data.zones = zones;
+		},
+		getDetails: function(cb){
+			if(data.details){
+				cb(data.details);
+			}else{ //If details are not loaded yet, wait a lil bit...
+				setTimeout(function() {
+					data.getDetails(cb);
+				}, 500);
+			}
+		},
+		getZones: function(cb){
+			if(data.zones){
+				cb(data.zones);
+			}else{ //If details are not loaded yet, wait a lil bit...
+				setTimeout(function() {
+					data.getZones(cb);
+				}, 500);
+			}
 		}
 	};
 
 	if(!data.isInitialized){
-		data.initialize(function(){
-			
-		});
+		data.initialize();
 		console.log('Data initialized');
 	}
 
