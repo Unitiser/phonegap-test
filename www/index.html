@@ -30,33 +30,35 @@
 
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>GéoImage Solution - Exemple PhoneGap </title>
-        <!-- bower:css -->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
-        <!-- endbower -->
+        <!-- injector:css -->
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <!-- endinjector -->
     </head>
     <body ng-app="myApp">
         <div class="view" ui-view></div>
 
-        <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/leaflet/dist/leaflet.js"></script>
-        <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
-        <script src="bower_components/chartjs/Chart.js"></script>
-        <script src="bower_components/lodash/lodash.js"></script>
-        <!-- endbower -->
+        <!-- injector:js -->
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-route/angular-route.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="/bower_components/leaflet/dist/leaflet.js"></script>
+        <script src="/bower_components/leaflet/dist/leaflet-src.js"></script>
+        <script src="/bower_components/chartjs/Chart.js"></script>
+        <script src="/bower_components/lodash/lodash.js"></script>
+        <script src="/app/about/about.js"></script>
+        <script src="/app/app.js"></script>
+        <script src="/app/chart/chart.js"></script>
+        <script src="/app/layout/navbar.js"></script>
+        <script src="/app/main/main.js"></script>
+        <script src="/app/map/map.js"></script>
+        <script src="/app/service/data.js"></script>
+        <script src="/app/service/phonegap.js"></script>
+        <!-- endinjector -->
         <script type="text/javascript" src="cordova.js"></script> 
-        <script type="text/javascript" src="app/app.js"></script>
-        <script type="text/javascript" src="app/main/main.js"></script>
-        <script type="text/javascript" src="app/about/about.js"></script>
-        <script type="text/javascript" src="app/layout/navbar.js"></script>
-        <script type="text/javascript" src="app/map/map.js"></script>
-        <script type="text/javascript" src="app/chart/chart.js"></script>
-        <script type="text/javascript" src="app/service/phonegap.js"></script>
-        <script type="text/javascript" src="app/service/data.js"></script>
+        
     </body>
 </html>

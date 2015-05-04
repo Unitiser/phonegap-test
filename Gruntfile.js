@@ -2,34 +2,64 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    wiredep: {
-
-      task: {
-
-        // Point to the files that should be updated when
-        // you run `grunt wiredep`
-        src: [
-          'www/**/*.html',   // .html support...
-          'www/js/**/*.js',
-        ],
-
-        options: {
-          // See wiredep's configuration documentation for the options
-          // you may pass:
-
-          // https://github.com/taptapship/wiredep#configuration
+    injector: {
+      options: {
+        ignorePath: 'www/'
+      },
+      local_dependencies: {
+        files: {
+          'www/index.html': ['bower.json', 'www/app/**/*.js', 'www/css/*.css'],
         }
       }
+    },
+    shell: {
+      phonegap: {
+        command: 'phonegap serve',
+        options: {
+          stdout: true,
+          stderr: true,
+          async: true
+        }
+      },
+      options: {
+          failOnError: true
+      }
+    },
+    waitServer: {
+      server: {
+        options: {
+          url: 'http://localhost:3000'
+        }
+      },
+    },
+    open : {
+      dev : {
+        path: 'http://localhost:3000',
+        app: 'google-chrome'
+      }
+    },
+    watch: {
+      scripts: {
+        files: ['**/*.js'],
+        tasks: ['injector'],
+        options: {
+          spawn: false,
+        },
+      },
     }
   });
 
-  // Load wiredep
-  grunt.loadNpmTasks('grunt-wiredep');
-
+  grunt.loadNpmTasks('grunt-injector');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-shell-spawn');
+  grunt.loadNpmTasks('grunt-wait-server');
+  grunt.loadNpmTasks('grunt-open');
 
 
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.task.registerTask('serve', ['injector','shell:phonegap', 'waitServer', 'open', 'watch']);
+  grunt.registerTask('default', ['serve']);
+
 
 };
