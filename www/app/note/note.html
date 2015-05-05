@@ -1,28 +1,19 @@
 <div ng-include="'app/layout/navbar.html'"></div>
 
 <div class="container">
-	<p>{{fsName}}</p>
-	<p>{{fsRootPath}}</p>
-	<p>{{err}}</p>
-	<ul>
-		<li ng-repeat="entry in entries"> 
-			{{entry.name}}
-			<ul ng-repeat="child in entry.childs">
-				{{child.name}}
-				<ul ng-repeat="grandChild in child.childs">
-					{{grandChild.name}}
-					<ul ng-repeat="grandGrandChild in grandChild.childs">
-						{{grandGrandChild.name}}
-					</ul>
-				</ul>
-			</ul>
-		</li>
-	</ul>
+	<button ng-click="initFile()">Init file</button>
+	<button ng-click="readNotes()">Load file</button>
+	<button ng-click="saveNotes()">Save changes</button>
 
 	<ul>
 		<li ng-repeat="note in notes">
-			<p>{{title}}</p>
-			<p>{{content}}</p>
+			<p>{{note.title}}</p>
+			<p>{{note.content}}</p>
+		</li>
+		<li>
+			<input type="text" placeholder="Title" ng-model="newNote.title" />
+			<input type="text" placeholder="Description" ng-model="newNote.content">
+			<button ng-click="addNote()">Add</button>
 		</li>
 	</ul>
 </div>
