@@ -8,8 +8,19 @@ module.exports = function(grunt) {
         addRootSlash: false
       },
       local_dependencies: {
+        options: {
+          ignorePath: ['www/app/app.js', 'www/']
+        },
         files: {
-          'www/index.html': ['bower.json', 'www/app/**/*.js', 'www/css/*.css'],
+          'www/index.html': ['www/app/**/*.js', 'www/css/*.css'],
+        }
+      },
+      bower_dependencies: {
+        options:{
+          bowerPrefix : 'bower:'
+        },
+        files:{
+          'www/index.html' : ['bower.json']
         }
       }
     },
