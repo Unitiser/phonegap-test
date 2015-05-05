@@ -6,5 +6,8 @@
             "uri": "https://github.com/phonegap/phonegap-app-hello-world/archive/master.tar.gz",
             "link": false
         }
+    },
+    "phonegap": {
+        "id": 1440667
     }
 }
