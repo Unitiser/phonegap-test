@@ -130,26 +130,48 @@ h1 {
     bottom: 0px;
     z-index: 1001;
     width: 100%;
-}
-.main_menu ul{
-    margin: 0px;
-    background-color: white;
-    width: 100%;
-}
-
-.main_menu .container-fluid{
     padding: 0px !important;
 }
 
-.togglemenu{
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    z-index: 1100;
+.main_menu ul{
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    background: linear-gradient(#e0e0e0, #ffffff, #e0e0e0);
+    list-style-type: none;
+    border-radius: 5px;
+    border: 1px solid #404040;
 }
 
-.navbar, .nav{
-    margin-bottom: 0px !important;
+.main_menu ul li{
+    display: inline-block;
+    border-right: 1px solid #404040;
+}
+.main_menu ul li:last-child{
+    border-right: none;
+}
+.main_menu>ul>li>a{
+    margin: 10px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #606060;
+}
+
+.main_menu>ul>li>a:hover, .main_menu>ul>li>a:active{
+    color: black;
+}
+
+.main_menu ul li a .fa{
+    font-size: 20px;
+    display: block;
+}
+
+.togglemenu{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1100;
 }
 
 .aboutTable tr td{
@@ -171,4 +193,62 @@ h1 {
 
 .container{
     min-height: 100%;
+    margin-top:30px;
+}
+
+.center{
+    text-align: center;
+}
+
+.float-right{
+    float: right;
+}
+
+.note-list{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.title_bar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    color:white;
+    background: linear-gradient(#202020, #606060, #303030);
+}
+
+.shadow
+{    
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.shadow:before, .shadow:after
+{
+    content:"";
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+} 
+.shadow:after
+{
+    right:10px; 
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg); 
+       -moz-transform:skew(8deg) rotate(3deg);     
+        -ms-transform:skew(8deg) rotate(3deg);     
+         -o-transform:skew(8deg) rotate(3deg); 
+            transform:skew(8deg) rotate(3deg);
 }

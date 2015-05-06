@@ -1,21 +1,32 @@
 <div ng-include="'app/layout/navbar.html'"></div>
 
 <div class="container">
-	<button ng-click="initFile()">Init file</button>
-	<button ng-click="readNotes()">Load file</button>
-	<button ng-click="saveNotes()">Save changes</button>
-
-	<ul>
-		<li ng-repeat="note in notes">
-			<p>{{note.title}}</p>
-			<p>{{note.content}}</p>
-		</li>
-		<li>
-			<input type="text" placeholder="Title" ng-model="newNote.title" />
-			<input type="text" placeholder="Description" ng-model="newNote.content">
-			<button ng-click="addNote()">Add</button>
-		</li>
-	</ul>
+	<div class="row">
+		<h3>Notes</h3>
+		<ul class="note-list">
+			<li ng-repeat="note in notes">
+				<h5>{{note.title}}</h5>
+				<p>{{note.content}}</p>
+			</li>
+			<li ng-hide="notes && notes.length">
+				Il n'y a aucune notes pour le moment
+			</li>
+			<li>
+				<form ng-submit="addNote()">
+					<div class="inputgroup">
+						<h3>Nouvelle note</h3>
+						<input type="text" placeholder="Title" ng-model="newNote.title" class="form-control" />
+						<textarea placeholder="Description" ng-model="newNote.content" class="form-control"></textarea>
+						<input type="submit" class="btn btn-default float-right" value="Ajouter">
+					</div>
+				</form>
+			</li>
+		</ul>
+	</div>
+	<div class="row center">
+		<button class="btn btn-default" ng-click="initFile()">Réinitialiser les notes</button>
+		<button class="btn btn-default" ng-click="saveNotes()">Enregistrer</button>
+	</div>
 </div>
 
 <div ng-include="'app/layout/footer.html'"></div>

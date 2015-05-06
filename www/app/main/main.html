@@ -1,27 +1,41 @@
 <div ng-include="'app/layout/navbar.html'"></div>
 
 <div class="container">
-    <h1>GeoImage Solution - Exemple PhoneGap</h1>
-    
     <h2>Quelque fonctionnalité...</h2>
-
-	<h3>L'événement "deviceready"</h3>
-    <div id="deviceready" class="blink">
-        <p class="listening" ng-hide="isReady">Connexion à l'appareil</p>
-        <p class="received" ng-show="isReady">L'appareil est près</p>
+    
+    <div class="row">
+    	<h3>L'événement "deviceready"</h3>
+        <div id="deviceready" class="blink">
+            <p class="listening" ng-hide="isReady">Connexion à l'appareil</p>
+            <p class="received" ng-show="isReady">L'appareil est près</p>
+        </div>
     </div>
 
-    <h3>Faire vibrer le téléphone</h3>
-    <button ng-click="vibrate()">
-    	PhoneGap, vibre!
-    </button>
-
-    <h3>Entrer du texte</h3>
-    <input type="text" ng-model="inputText"><button  ng-click="confirmMsg()">Ok</button>
-    <p ng-show="message">Vous avez dit : {{message}}</p>
-
-    <h4>Obtenir la position avec le GPS</h4>
-    <p>{{location}}</p>
+    <div class="row">
+        <h3>Faire vibrer le téléphone</h3>
+        <button ng-click="vibrate()" class="btn btn-default">
+        	PhoneGap, vibre!
+        </button>
+    </div>
+    
+    <div class="row">
+        <h3>Entrer du texte</h3>
+        <form ng-submit="confirmMsg()">
+            <div class="input-group">
+                <input type="text" ng-model="inputText" class="form-control">
+                <span class="input-group-btn">
+                    <input type="submit" ng-click="confirmMsg()" value="Ok" class="btn btn-default" />
+                </span>
+                
+            </div>
+        </form>
+        <p ng-show="message">Vous avez dit : {{message}}</p>
+    </div>
+    
+    <div class="row">
+        <h4>Obtenir la position avec le GPS</h4>
+        <p>{{location}}</p>
+    </div>
 </div>
 
 <div ng-include="'app/layout/footer.html'"></div>

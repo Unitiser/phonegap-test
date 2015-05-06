@@ -1,19 +1,31 @@
-<div class="main_menu">
-	<div class="navbar navbar_default">
-		<div class="container-fluid" ng-controller="NavbarCtrl">
-			<button class="togglemenu" ng-click="toggleNav()">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<ul class="nav navbar-nav navbar-left" ng-show="displayNav">
-				<li><a href="#/">Home</a></li>
-				<li><a href="#/map">Map</a></li>
-				<li><a href="#/chart">Graph</a></li>
-				<li><a href="#/note">Notes</a></li>
-				<li><a href="#/about">About</a></li>
-				<li><a href="#" ng-click="exit()">Exit</a></li>
-			</ul>
-		</div>
-	</div>
+<div class="main_menu" ng-controller="NavbarCtrl">
+	<button class="togglemenu" ng-click="toggleNav()">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+	<ul ng-show="displayNav">
+		<li><a href="#/">
+			<i class="fa fa-home"></i>
+			Home</a></li>
+		<li><a href="#/map">
+			<i class="fa fa-map-marker"></i>
+			Map</a></li>
+		<li><a href="#/chart">
+			<i class="fa fa-bar-chart"></i>
+			Graph</a></li>
+		<li><a href="#/note">
+			<i class="fa fa-pencil"></i>
+			Notes</a></li>
+		<li><a href="#/about">
+			<i class="fa fa-question"></i>
+			About</a></li>
+		<li><a href="#" ng-click="exit()">
+			<i class="fa fa-sign-out"></i>
+			Exit</a></li>
+	</ul>
+</div>
+
+<div class="title_bar shadow">
+	GeoImage Solution - Exemple PhoneGap
 </div>
