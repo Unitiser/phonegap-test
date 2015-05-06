@@ -7,6 +7,11 @@ angular.module('myApp').controller('MainCtrl', function($scope, $rootScope,Phone
 	$scope.vibrate = function(){
 		navigator.vibrate([1000, 500, 2000, 500, 1000]);
 	}
+
+	$scope.beep = function(){
+		navigator.beep();
+	}
+
 	$scope.location = "En attente...";
 	$scope.$on('deviceready', function(event, data){
 	    $scope.isReady = true;
